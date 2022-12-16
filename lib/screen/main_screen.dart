@@ -69,11 +69,14 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ),
           ),
-
           // 탭
-          Positioned(
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeIn,
             top: 180,
-            child: Container(
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeIn,
               padding: EdgeInsets.all(20.0),
               height: isSignupScreen ? 280.0 : 200.0,
               width: MediaQuery.of(context).size.width - 40, // 각 디바이스의 실제 너비값
@@ -159,6 +162,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                         children: [
                           if (isSignupScreen)
                             TextFormField(
+                              key: ValueKey('userName'),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.account_circle,
                                     color: Palette.iconColor),
@@ -191,6 +195,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               height: 8,
                             ),
                           TextFormField(
+                            key: ValueKey('email'),
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.email_rounded,
                                   color: Palette.iconColor),
@@ -222,6 +227,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             height: 8,
                           ),
                           TextFormField(
+                            key: ValueKey('pwd'),
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded,
                                   color: Palette.iconColor),
@@ -257,9 +263,10 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ),
           ),
-
           //로그인 버튼
-          Positioned(
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeIn,
             top: isSignupScreen ? 430 : 350,
             right: 0,
             left: 0,
@@ -300,7 +307,6 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ),
           ),
-
           //SSO
           Positioned(
             top: MediaQuery.of(context).size.height - 125,
